@@ -1,284 +1,264 @@
-```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moeez Ahmad — AI &amp; Full-Stack Software Engineer</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace']
-                    }
-                }
-            }
-        };
-    </script>
-    <!-- Google Fonts: Plus Jakarta Sans, Inter & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Subtle Architectural Grid & Executive Glass Surfaces */
-        .bg-arch-grid {
-            background-size: 44px 44px;
-            background-image:
-                linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-        }
-
-        .dark .bg-arch-grid {
-            background-image:
-                linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
-        }
-
-        .exec-card {
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(226, 232, 240, 0.95);
-            box-shadow: 0 12px 32px -12px rgba(15, 23, 42, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-        }
-
-        .dark .exec-card {
-            background: rgba(15, 23, 42, 0.72);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(51, 65, 85, 0.65);
-            box-shadow: 0 16px 36px -14px rgba(0, 0, 0, 0.65);
-        }
-
-        @keyframes scanLine {
-            0%, 100% { top: 14%; }
-            50% { top: 82%; }
-        }
-        .animate-scanner {
-            animation: scanLine 2.8s ease-in-out infinite;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moeez Ahmad — AI & Full-Stack Software Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .grid-bg {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(15,23,42,.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(15,23,42,.04) 1px, transparent 1px);
+    }
+    .dark .grid-bg {
+      background-image: linear-gradient(to right, rgba(148,163,184,.06) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(148,163,184,.06) 1px, transparent 1px);
+    }
+  </style>
 </head>
-<body class="bg-[#F8FAFC] text-[#0F172A] dark:bg-[#090D16] dark:text-slate-100 font-sans antialiased selection:bg-[#2563EB] selection:text-white transition-colors duration-300">
+<body class="bg-slate-50 text-slate-900 dark:bg-[#090D16] dark:text-slate-100 grid-bg transition-colors duration-300">
 
-    <!-- Subtle Ambient Background Texture -->
-    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div class="absolute inset-0 bg-arch-grid"></div>
-        <div class="absolute -top-40 -right-32 w-[28rem] h-[28rem] rounded-full bg-blue-500/10 dark:bg-sky-500/12 blur-3xl"></div>
-        <div class="absolute top-1/2 -left-40 w-[26rem] h-[26rem] rounded-full bg-emerald-500/10 dark:bg-cyan-500/10 blur-3xl"></div>
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 border-b border-slate-200/80 dark:border-slate-800 bg-white/85 dark:bg-[#090D16]/85 backdrop-blur-lg">
+    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="#about" class="text-xl font-extrabold tracking-tight">Moeez<span class="text-blue-600 dark:text-sky-400">.</span></a>
+      <nav class="hidden md:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#experience" class="hover:text-blue-600">Experience</a>
+        <a href="#projects" class="hover:text-blue-600">Projects</a>
+        <a href="#credentials" class="hover:text-blue-600">Credentials</a>
+        <a href="#endorsements" class="hover:text-blue-600">Endorsements</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="themeBtn" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold">🌙 / ☀️</button>
+        <a href="#contact" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold">Hire Me</a>
+      </div>
     </div>
+  </header>
 
-    <!-- ===================================================================== -->
-    <!-- 1. STICKY GLASSMORPHIC NAVIGATION BAR                                 -->
-    <!-- ===================================================================== -->
-    <header class="sticky top-0 z-40 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-[#F8FAFC]/85 dark:bg-[#090D16]/85 backdrop-blur-xl">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#about" class="font-display text-xl sm:text-2xl font-extrabold tracking-tight text-[#0F172A] dark:text-white flex items-center">
-                Moeez<span class="text-[#2563EB] dark:text-sky-400">.</span>
-            </a>
+  <main class="max-w-5xl mx-auto px-4 py-12 space-y-20">
 
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
-                <a href="#about" class="hover:text-[#2563EB] dark:hover:text-sky-400 transition-colors">About</a>
-                <a href="#experience" class="hover:text-[#2563EB] dark:hover:text-sky-400 transition-colors">Experience</a>
-                <a href="#projects" class="hover:text-[#2563EB] dark:hover:text-sky-400 transition-colors">Projects</a>
-                <a href="#credentials" class="hover:text-[#2563EB] dark:hover:text-sky-400 transition-colors">Credentials</a>
-                <a href="#endorsements" class="hover:text-[#2563EB] dark:hover:text-sky-400 transition-colors">Endorsements</a>
-                <a href="#contact" class="hover:text-[#2563EB] dark:hover:text-sky-400 transition-colors">Contact</a>
-            </nav>
-
-            <!-- Right Controls: Theme Toggle, Hire Me CTA & Mobile Menu Button -->
-            <div class="flex items-center gap-2.5">
-                <button id="themeToggle" type="button" aria-label="Toggle Dark or Light Mode"
-                    class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 hover:border-[#2563EB] dark:hover:border-sky-400 transition-all cursor-pointer">
-                    <!-- Moon Icon (visible in Light Mode) -->
-                    <svg id="iconMoon" class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-                    </svg>
-                    <!-- Sun Icon (visible in Dark Mode) -->
-                    <svg id="iconSun" class="w-4 h-4 text-amber-400 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <path stroke-linecap="round" d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-                    </svg>
-                </button>
-
-                <a href="#contact"
-                    class="px-4 py-2.5 rounded-xl bg-[#2563EB] hover:bg-blue-700 dark:bg-sky-500 dark:hover:bg-sky-400 text-white dark:text-slate-950 text-xs sm:text-sm font-semibold shadow-sm shadow-blue-600/20 transition-all">
-                    Hire Me
-                </a>
-
-                <!-- Mobile Hamburger Button -->
-                <button id="mobileMenuBtn" type="button" aria-label="Open Navigation Menu"
-                    class="lg:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 cursor-pointer">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+    <!-- Hero Section -->
+    <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-7 space-y-5">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:text-emerald-400 text-xs mono font-semibold">
+          ● Open to Global Remote Projects &amp; AI Roles
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+          Moeez Ahmad — Building <span class="text-blue-600 dark:text-sky-400">Intelligent AI Systems</span> &amp; Modern Web Apps.
+        </h1>
+        <p class="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
+          BS Computer Science Graduate (<strong class="text-slate-900 dark:text-white">3.30/4.0 CGPA, HEC Attested</strong>) and former AI Intern at <strong class="text-slate-900 dark:text-white">Systems Limited</strong>. Focused on Computer Vision, TensorFlow Lite mobile deployment, and full-stack web engineering.
+        </p>
+        <div class="flex flex-wrap gap-3 pt-1">
+          <a href="#projects" class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md">Explore Projects →</a>
+          <button onclick="copyEmail()" id="copyBtn" class="px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm mono font-semibold">📋 Copy Email</button>
         </div>
-
-        <!-- Mobile Dropdown Nav -->
-        <div id="mobileNav" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#090D16]/95 px-4 py-3 space-y-2 text-sm font-medium">
-            <a href="#about" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-[#2563EB]">About</a>
-            <a href="#experience" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-[#2563EB]">Experience</a>
-            <a href="#projects" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-[#2563EB]">Projects</a>
-            <a href="#credentials" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-[#2563EB]">Credentials</a>
-            <a href="#endorsements" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-[#2563EB]">Endorsements</a>
-            <a href="#contact" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-[#2563EB]">Contact</a>
+        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+          <div><div class="text-2xl font-extrabold">3.30<span class="text-blue-600 text-base">/4.0</span></div><div class="text-xs text-slate-500">HEC Attested BSCS</div></div>
+          <div><div class="text-2xl font-extrabold">Top 25%</div><div class="text-xs text-slate-500">Global HTML &amp; CSS</div></div>
+          <div><div class="text-2xl font-extrabold">C1 Level</div><div class="text-xs text-slate-500">English Proficiency</div></div>
         </div>
-    </header>
+      </div>
 
-    <!-- ===================================================================== -->
-    <!-- MAIN CONTENT CONTAINER                                                -->
-    <!-- ===================================================================== -->
-    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 sm:pt-16 sm:pb-28 space-y-24 sm:space-y-28">
+      <!-- Portrait Frame -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-[330px] bg-white dark:bg-slate-900 p-3 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
+          <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800">
+            <img src="moeez-profile.jpg" alt="Moeez Ahmad" class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="mt-3 flex flex-wrap justify-center gap-1.5">
+            <span class="px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-700 dark:text-sky-300 text-[11px] mono font-semibold">Systems Limited AI</span>
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[11px] mono font-semibold">HEC Attested</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- ================================================================= -->
-        <!-- 2. HERO SECTION (INTRO + CLEAN SINGLE PORTRAIT CARD)              -->
-        <!-- ================================================================= -->
-        <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            <!-- Left Column: Headline, Subheadline & CTAs -->
-            <div class="lg:col-span-7 space-y-6">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#059669]/10 border border-[#059669]/25 text-[#059669] dark:text-emerald-400 text-xs font-mono font-medium">
-                    <span class="w-2 h-2 rounded-full bg-[#059669] dark:bg-emerald-400 animate-pulse"></span>
-                    Available for Global Remote Projects &amp; AI Roles
-                </div>
-
-                <h1 class="font-display text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight leading-[1.13] text-[#0F172A] dark:text-white">
-                    Moeez Ahmad — Building <span class="text-[#2563EB] dark:text-sky-400">Intelligent AI Systems</span> &amp; High-Converting Web Experiences.
-                </h1>
-
-                <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
-                    Computer Science Graduate (<span class="font-mono font-semibold text-[#0F172A] dark:text-white">BSCS, 3.30 CGPA</span>) and former AI Intern at <strong class="font-semibold text-[#0F172A] dark:text-white">Systems Limited</strong>. Specializing in Computer Vision, TensorFlow Lite mobile deployment, and full-stack web applications.
-                </p>
-
-                <!-- Action Buttons -->
-                <div class="flex flex-wrap items-center gap-3 pt-1">
-                    <a href="#projects"
-                        class="px-6 py-3.5 rounded-xl bg-[#2563EB] hover:bg-blue-700 dark:bg-sky-500 dark:hover:bg-sky-400 text-white dark:text-slate-950 font-semibold text-sm shadow-lg shadow-blue-600/20 dark:shadow-sky-500/20 transition-all flex items-center gap-2">
-                        <span>Explore Projects</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-
-                    <a href="#contact"
-                        class="px-6 py-3.5 rounded-xl exec-card hover:border-[#2563EB] dark:hover:border-sky-400 text-[#0F172A] dark:text-white font-semibold text-sm transition-all">
-                        Start a Project
-                    </a>
-
-                    <button id="copyEmailBtn" type="button"
-                        class="px-5 py-3.5 rounded-xl exec-card hover:border-[#2563EB] dark:hover:border-sky-400 text-slate-700 dark:text-slate-200 font-mono text-xs sm:text-sm font-medium flex items-center gap-2 transition-all cursor-pointer">
-                        <svg class="w-4 h-4 text-[#2563EB] dark:text-sky-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-                        </svg>
-                        <span>Copy Email</span>
-                    </button>
-                </div>
-
-                <!-- Key Academic & Industry Highlights -->
-                <div class="grid grid-cols-3 gap-4 pt-5 border-t border-slate-200 dark:border-slate-800/80">
-                    <div>
-                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-[#0F172A] dark:text-white">3.30<span class="text-[#2563EB] dark:text-sky-400 text-lg">/4.0</span></div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">HEC Attested BSCS</div>
-                    </div>
-                    <div>
-                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-[#0F172A] dark:text-white">Top 25%</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Global HTML &amp; CSS</div>
-                    </div>
-                    <div>
-                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-[#0F172A] dark:text-white">C1 Level</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">English Proficiency</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column: Single Clean Executive Portrait Frame (4:5 Aspect Ratio) -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="relative w-full max-w-[360px]">
-                    <!-- Floating Verified Badge 1 (Top Left) -->
-                    <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl exec-card shadow-lg absolute -top-4 -left-5 z-20">
-                        <span class="w-2 h-2 rounded-full bg-[#2563EB] dark:bg-sky-400"></span>
-                        <span class="font-mono text-[11px] font-semibold text-[#0F172A] dark:text-slate-100">Systems Limited AI Alumni</span>
-                    </div>
-
-                    <!-- Floating Verified Badge 2 (Middle Right) -->
-                    <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl exec-card shadow-lg absolute top-1/2 -right-6 -translate-y-1/2 z-20">
-                        <span class="w-2 h-2 rounded-full bg-[#059669] dark:bg-emerald-400"></span>
-                        <span class="font-mono text-[11px] font-semibold text-[#0F172A] dark:text-slate-100">HEC Attested BSCS</span>
-                    </div>
-
-                    <!-- Floating Verified Badge 3 (Bottom Left) -->
-                    <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl exec-card shadow-lg absolute -bottom-4 left-4 z-20">
-                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-                        <span class="font-mono text-[11px] font-semibold text-[#0F172A] dark:text-slate-100">TestDome Top 25%</span>
-                    </div>
-
-                    <!-- Clean Single 4:5 Portrait Card (Zero upload or file inputs) -->
-                    <div class="exec-card rounded-3xl p-3 shadow-2xl">
-                        <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 dark:from-slate-900 dark:via-[#0d1629] dark:to-slate-950 border border-slate-200/80 dark:border-slate-800 flex items-center justify-center">
-                            
-                            <!-- Primary Portrait Image with Automatic Fallback Chain -->
-                            <img id="portraitImg"
-                                src="moeez-profile.jpg"
-                                alt="Moeez Ahmad — AI & Full-Stack Software Engineer"
-                                class="w-full h-full object-cover object-top">
-
-                            <!-- Crisp Architectural Monogram Emblem (Shown gracefully if local images are unavailable in sandbox) -->
-                            <div id="portraitMonogram" class="hidden flex-col items-center justify-center text-center p-6 w-full h-full">
-                                <div class="w-28 h-28 rounded-3xl bg-gradient-to-br from-[#2563EB] to-indigo-700 dark:from-sky-500 dark:to-blue-700 p-[2px] shadow-xl shadow-blue-600/20 mb-5">
-                                    <div class="w-full h-full rounded-[22px] bg-white dark:bg-[#090D16] flex items-center justify-center">
-                                        <span class="font-display text-4xl font-extrabold tracking-tight text-[#0F172A] dark:text-white">
-                                            MA<span class="text-[#2563EB] dark:text-sky-400">.</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="font-display text-lg font-bold text-[#0F172A] dark:text-white">Moeez Ahmad</div>
-                                <div class="font-mono text-xs text-[#2563EB] dark:text-sky-400 mt-1">AI &amp; Full-Stack Engineer</div>
-                                <div class="mt-4 flex flex-wrap justify-center gap-1.5 sm:hidden">
-                                    <span class="px-2.5 py-1 rounded-lg bg-blue-500/10 text-[#2563EB] dark:text-sky-300 font-mono text-[10px] font-semibold">Systems Limited Alumni</span>
-                                    <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-[#059669] dark:text-emerald-300 font-mono text-[10px] font-semibold">HEC Attested BSCS</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================================================================= -->
-        <!-- 3. EXPERIENCE TIMELINE                                            -->
-        <!-- ================================================================= -->
-        <section id="experience" class="space-y-8">
+    <!-- Experience -->
+    <section id="experience" class="space-y-6">
+      <div>
+        <span class="mono text-xs uppercase tracking-widest text-blue-600 dark:text-sky-400 font-semibold">Career History</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Industry Experience</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+          <div class="flex justify-between items-start gap-2">
             <div>
-                <span class="font-mono text-xs uppercase tracking-widest text-[#2563EB] dark:text-sky-400 font-semibold">Career History</span>
-                <h2 class="font-display text-3xl sm:text-4xl font-extrabold mt-1 text-[#0F172A] dark:text-white">Industry Experience</h2>
+              <h3 class="text-lg font-bold">Artificial Intelligence Intern</h3>
+              <p class="text-sm font-semibold text-blue-600 dark:text-sky-400">Systems Limited — Lahore, Pakistan</p>
             </div>
+            <span class="px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-700 dark:text-sky-300 mono text-xs font-semibold">Sep – Dec 2025</span>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Contributed to production machine learning pipelines, model evaluation and deployment, and enterprise AI system architecture alongside senior AI engineers.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
+          <div class="flex justify-between items-start gap-2">
+            <div>
+              <h3 class="text-lg font-bold">Web Development Intern</h3>
+              <p class="text-sm font-semibold text-emerald-600 dark:text-emerald-400">CodeAlpha — Remote</p>
+            </div>
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 mono text-xs font-semibold">Jul – Nov 2024</span>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Engineered responsive web applications using HTML5, CSS3, and JavaScript with clean UI interaction design and GitHub collaborative workflows.</p>
+        </div>
+      </div>
+    </section>
 
-            <div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-3 sm:ml-4 space-y-8 pl-6 sm:pl-8">
-                <!-- Experience 1: Systems Limited -->
-                <article class="relative exec-card rounded-2xl p-6 sm:p-7">
-                    <span class="absolute -left-[33px] sm:-left-[41px] top-7 w-4 h-4 rounded-full bg-[#2563EB] dark:bg-sky-400 ring-4 ring-[#F8FAFC] dark:ring-[#090D16]"></span>
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                        <div>
-                            <h3 class="font-display text-xl font-bold text-[#0F172A] dark:text-white">Artificial Intelligence Intern</h3>
-                            <div class="text-sm font-semibold text-[#2563EB] dark:text-sky-400">Systems Limited — Lahore, Pakistan</div>
-                        </div>
-                        <span class="inline-flex self-start px-3 py-1 rounded-lg bg-blue-500/10 dark:bg-sky-500/15 text-[#2563EB] dark:text-sky-300 font-mono text-xs font-semibold">
-                            Sep 2025 – Dec 2025
-                        </span>
-                    </div>
-                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-                        Contributed to production machine learning pipelines, model evaluation and deployment, and enterprise AI system architecture workflows alongside senior AI engineers.
-                    </p>
-                </article>
+    <!-- Projects + Live TFLite Simulator -->
+    <section id="projects" class="space-y-6">
+      <div>
+        <span class="mono text-xs uppercase tracking-widest text-blue-600 dark:text-sky-400 font-semibold">Featured Engineering</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Projects &amp; Live AI Demo</h2>
+      </div>
 
-                <!-- Experience 2: CodeAlpha -->
-                <article class="relative exec-card rounded-2xl p-6 sm:p-7">
-                    <span class="absolute -left-[33px] sm:-left-[41px] top-7 w-4 h-4 rounded-full bg-[#059669] dark:bg-emerald-400 ring-4 ring-[#F8FAFC] dark:ring-[#090D16]"></spa
+      <div class="grid lg:grid-cols-12 gap-6">
+        <!-- Eye Analyzer App + Interactive Simulator -->
+        <div class="lg:col-span-7 p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-xl font-extrabold">Eye Analyzer App (On-Device CNN)</h3>
+            <span class="px-2.5 py-1 rounded-lg bg-blue-600 text-white mono text-xs font-semibold">TFLite • Android • Firebase</span>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Curated clinical anterior-segment eye datasets from local hospitals, trained a custom CNN (224×224 normalization) to detect <strong>Cataracts, Pterygium, and Corneal Ulcers</strong>, and deployed via TensorFlow Lite inside a multi-role Android app (Patient, Doctor &amp; Admin dashboards).
+          </p>
+
+          <!-- Interactive Simulator -->
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="mono text-xs font-semibold text-blue-600 dark:text-sky-400">▶ Interactive TFLite Inference Demo</span>
+              <span id="simLatency" class="mono text-[11px] text-slate-500">14ms on-device</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <button onclick="runSim('Healthy', 98.4, 'Clear cornea & normal lens transparency. No pathology detected.', 'bg-emerald-500')" class="px-2.5 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-blue-500">Healthy</button>
+              <button onclick="runSim('Cataract', 96.8, 'Lens opacity detected in pupillary zone. Recommend ophthalmologist consult.', 'bg-amber-500')" class="px-2.5 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-blue-500">Cataract</button>
+              <button onclick="runSim('Pterygium', 95.2, 'Fibrovascular conjunctival growth encroaching nasal cornea.', 'bg-orange-500')" class="px-2.5 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-blue-500">Pterygium</button>
+              <button onclick="runSim('Corneal Ulcer', 97.5, 'Focal epithelial defect & stromal infiltrate flagged. Urgent care.', 'bg-rose-500')" class="px-2.5 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-semibold hover:border-blue-500">Corneal Ulcer</button>
+            </div>
+            <div class="pt-1 space-y-1.5">
+              <div class="flex justify-between text-xs font-bold">
+                <span id="simLabel">Prediction: Healthy Cornea</span>
+                <span id="simScore" class="mono text-emerald-600 dark:text-emerald-400">98.4%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                <div id="simBar" class="h-full bg-emerald-500 transition-all duration-300" style="width:98.4%"></div>
+              </div>
+              <p id="simNote" class="text-xs text-slate-600 dark:text-slate-400">Clear cornea &amp; normal lens transparency. No pathology detected.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- E-Commerce Platform -->
+        <div class="lg:col-span-5 p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 mono text-xs font-semibold">MVC • SQL • Bootstrap</span>
+            <h3 class="text-xl font-extrabold">Enterprise E-Commerce Platform</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Full-stack MVC web application built with Visual Studio, Bootstrap, and relational SQL databases—featuring customer storefronts, role-based admin inventory dashboards, order workflows, and personalized product recommendations.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-xs mono">Python</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-xs mono">TensorFlow</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-xs mono">Java / XML</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-xs mono">HTML5 / CSS3 / JS</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-xs mono">Firebase &amp; SQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Credentials -->
+    <section id="credentials" class="space-y-6">
+      <div>
+        <span class="mono text-xs uppercase tracking-widest text-blue-600 dark:text-sky-400 font-semibold">Verified Qualifications</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Education &amp; Certifications</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1.5">
+          <span class="mono text-xs text-blue-600 dark:text-sky-400 font-semibold">2021 – 2025 • HEC Attested</span>
+          <h3 class="font-bold text-base">BS in Computer Science (BSCS)</h3>
+          <p class="text-xs text-slate-500">University of Sialkot (USKT) • CGPA 3.30 / 4.00</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1.5">
+          <span class="mono text-xs text-emerald-600 dark:text-emerald-400 font-semibold">TestDome Certified</span>
+          <h3 class="font-bold text-base">HTML &amp; CSS (Top 25% Globally)</h3>
+          <p class="text-xs text-slate-500">Verified practical coding assessment • ID: 542b7302</p>
+        </div>
+        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1.5">
+          <span class="mono text-xs text-amber-600 dark:text-amber-400 font-semibold">OEC &amp; ICMPD • Oct 2025</span>
+          <h3 class="font-bold text-base">Soft Skills &amp; Career Readiness</h3>
+          <p class="text-xs text-slate-500">International employability &amp; communication program</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculty Endorsements -->
+    <section id="endorsements" class="space-y-6">
+      <div>
+        <span class="mono text-xs uppercase tracking-widest text-blue-600 dark:text-sky-400 font-semibold">Academic References</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Faculty Endorsements</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <blockquote class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+          <p class="text-sm text-slate-600 dark:text-slate-300 italic leading-relaxed">
+            "Moeez has always remained prominent among his colleagues—conscientious, a quick learner, and proficient in English. He seeks deep clarity of concepts rather than rote learning."
+          </p>
+          <footer class="text-xs font-bold">Dr. Muhammad Azeem <span class="font-normal text-slate-500">— Associate Professor &amp; HOD Computer Science, USKT</span></footer>
+        </blockquote>
+        <blockquote class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+          <p class="text-sm text-slate-600 dark:text-slate-300 italic leading-relaxed">
+            "Throughout his BSCS studies, Moeez consistently demonstrated exceptional academic performance, placing him among the top 10% of students in his cohort."
+          </p>
+          <footer class="text-xs font-bold">Namra Mukhtar <span class="font-normal text-slate-500">— Lecturer, Department of Computer Science, USKT</span></footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="p-8 rounded-3xl bg-slate-900 dark:bg-slate-900/90 text-white border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="space-y-2 max-w-xl">
+        <span class="mono text-xs text-sky-400 uppercase tracking-widest font-semibold">Let's Collaborate</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold">Ready to build an AI solution or high-converting website?</h2>
+        <p class="text-sm text-slate-300">Sialkot, Pakistan • Available for international remote roles, research collaborations, and freelance projects.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="mailto:moeez37bussines@gmail.com" class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-sm font-semibold">✉️ Email Me</a>
+        <a href="https://wa.me/923046825117" target="_blank" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-sm font-semibold">💬 WhatsApp</a>
+        <a href="https://www.linkedin.com/in/moeez-ahmad-717379258" target="_blank" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-sm font-semibold">in LinkedIn</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-500">
+    © 2026 Moeez Ahmad • Built with clean code &amp; engineering precision.
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    document.getElementById('themeBtn').onclick = () => html.classList.toggle('dark');
+
+    function copyEmail() {
+      navigator.clipboard.writeText('moeez37bussines@gmail.com');
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = '✅ Email Copied!';
+      setTimeout(() => btn.textContent = '📋 Copy Email', 2200);
+    }
+
+    function runSim(name, conf, note, barColor) {
+      document.getElementById('simLabel').textContent = 'Prediction: ' + name;
+      document.getElementById('simScore').textContent = conf + '%';
+      document.getElementById('simNote').textContent = note;
+      const bar = document.getElementById('simBar');
+      bar.className = 'h-full transition-all duration-300 ' + barColor;
+      bar.style.width = conf + '%';
+    }
+  </script>
+</body>
+</html>
